@@ -2,20 +2,21 @@
     padding: 10px 10px;
 }
 
+.header-list li {
+    list-style: none;
+    float: right;
+    background-color: cadetblue;
+    color: ivory;
+    color: black;
+    padding: 0, 10px;
+}
+
 .header-logo {
     font-size: 20px;
 }
 
 .header-logo2 {
     font-size: 15px;
-}
-
-.header-list li {
-    list-style: none;
-    float: left;
-    background-color: cornflowerblue;
-    color: ivory;
-    color: black;
 }
 
 .main {
@@ -25,13 +26,18 @@
 .contents-item h1 {
     background-color: dodgerblue;
     color: white;
-    font-size: 50px;
+    font-size: 35px;
+    padding: 10px;
+    margin: 10px;
 }
 
 .contents-item h2 {
     background-color: powderblue;
     color: black;
     font-size: 30px;
+    padding: 10px;
+    margin: 5px;
+    border-bottom: royalblue;
 }
 
 .contents-item h3 {
@@ -62,4 +68,5 @@
     list-style: none;
     float: right;
     color: deepskyblue;
+    padding: 10px;
 }
