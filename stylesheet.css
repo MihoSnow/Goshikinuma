@@ -73,5 +73,6 @@
     list-style: square;
     float: right;
     color: deepskyblue;
-    padding: 20px;
+    padding: 5px;
+    margin: 10px;
 }
