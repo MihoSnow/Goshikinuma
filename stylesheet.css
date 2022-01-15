@@ -38,13 +38,13 @@
 .selected2 {
     position: absolute;
     top: 0;
-    left: 1000px;
+    left: 800px;
 }
 
 .selected3 {
     position: absolute;
     top: 0;
-    left: 1200px;
+    left: 1100px;
 }
 
 .main {
@@ -103,6 +103,5 @@
     float: right;
     color: deepskyblue;
     padding-bottom: 20px;
-    padding-left: 5px;
-    margin: 10px;
+    padding-left: 10px;
 }
