@@ -91,6 +91,12 @@
     height: 80%;
 }
 
+.icon::before {
+    font-family: "Font Awesome 5 Brands";
+    content: '\f099';
+    font-weight: 900;
+}
+
 .footer {
     padding: 10px 10px;
     border-top: solid 1px;
