@@ -32,7 +32,7 @@
 .selected1 {
     position: absolute;
     top: 0;
-    left: 720px;
+    left: 730px;
 }
 
 .selected2 {
@@ -106,5 +106,4 @@
     color: deepskyblue;
     padding-bottom: 20px;
     padding-left: 10px;
-    margin-right: 10px;
 }
