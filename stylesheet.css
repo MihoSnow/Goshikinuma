@@ -32,13 +32,13 @@
 .selected1 {
     position: absolute;
     top: 0;
-    left: 600px;
+    left: 700px;
 }
 
 .selected2 {
     position: absolute;
     top: 0;
-    left: 800px;
+    left: 950px;
 }
 
 .selected3 {
@@ -54,8 +54,10 @@
 .contents-item h1 {
     background-color: dodgerblue;
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 35px;
     padding-top: 20px;
+    padding-bottom: 20px;
     padding-left: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -102,6 +104,7 @@
     list-style: square;
     float: right;
     color: deepskyblue;
+    padding-right: 10px;
     padding-bottom: 20px;
     padding-left: 10px;
 }
