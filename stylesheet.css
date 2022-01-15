@@ -19,6 +19,7 @@
     position: absolute;
     top: 0;
     left: 600px;
+    right: 50px;
     list-style: none;
     float: left;
     background-color: cadetblue;
@@ -88,6 +89,6 @@
     float: right;
     color: deepskyblue;
     padding-bottom: 20px;
-    padding-left: 10px;
+    padding-left: 40px;
     margin: 10px;
 }
