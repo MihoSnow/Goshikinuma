@@ -18,7 +18,7 @@
 .header-list li {
     position: absolute;
     top: 0;
-    left: 1200px;
+    left: 600px;
     list-style: none;
     float: left;
     background-color: cadetblue;
@@ -87,7 +87,7 @@
     list-style: square;
     float: right;
     color: deepskyblue;
-    padding-left: 10px;
     padding-bottom: 20px;
+    padding-left: 10px;
     margin: 10px;
 }
