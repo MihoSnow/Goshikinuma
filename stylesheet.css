@@ -24,7 +24,7 @@
     padding-top: 10px;
     padding-right: 20px;
     padding-left: 20px;
-    margin: 20px;
+    margin: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -38,13 +38,13 @@
 .selected2 {
     position: absolute;
     top: 0;
-    left: 700px;
+    left: 800px;
 }
 
 .selected3 {
     position: absolute;
     top: 0;
-    left: 800px;
+    left: 1000px;
 }
 
 .main {
@@ -103,6 +103,6 @@
     float: right;
     color: deepskyblue;
     padding-bottom: 20px;
-    padding-left: 40px;
+    padding-left: 5px;
     margin: 10px;
 }
