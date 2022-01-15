@@ -16,10 +16,6 @@
 }
 
 .header-list li {
-    position: absolute;
-    top: 0;
-    left: 600px;
-    right: 50px;
     list-style: none;
     float: left;
     background-color: cadetblue;
@@ -31,6 +27,24 @@
     margin: 20px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.selected1 {
+    position: absolute;
+    top: 0;
+    left: 600px;
+}
+
+.selected2 {
+    position: absolute;
+    top: 0;
+    left: 700px;
+}
+
+.selected3 {
+    position: absolute;
+    top: 0;
+    left: 800px;
 }
 
 .main {
