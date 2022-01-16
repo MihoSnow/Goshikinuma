@@ -91,14 +91,6 @@
     height: 80%;
 }
 
-.fas fa-facebook fa-lx {}
-
-.fas fa-twitter fa-2x {}
-
-.fas fa-instagram fa-2x {}
-
-.fas fa-line fa-2x {}
-
 .icon::before {
     font-family: "Font Awesome 5 Brands";
     content: '\f099';
