@@ -97,6 +97,12 @@
     font-weight: 900;
 }
 
+.icon::before {
+    font-family: "Font Awesome 5 Brands";
+    content: '\f098';
+    font-weight: 900;
+}
+
 .footer {
     padding: 10px 10px;
     border-top: solid 1px;
