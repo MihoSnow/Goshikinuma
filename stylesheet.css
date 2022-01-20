@@ -114,7 +114,7 @@
     font-size: 15px;
 }
 
-.footer-list a {
+.footer-list p {
     list-style: square;
     float: right;
     color: deepskyblue;
