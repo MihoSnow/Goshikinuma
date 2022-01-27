@@ -115,7 +115,7 @@
 }
 
 .footer {
-    padding: 10px 10px;
+    padding: 10px 10px 50px 10px;
     border-top: solid 1px;
     border-bottom: solid 1px;
 }
@@ -132,5 +132,6 @@
     padding-bottom: 20px;
     padding-left: 15px;
     margin: 20px;
-    border-style: none;
+    border-style: hidden;
+    border-color: transparent;
 }
