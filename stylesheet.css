@@ -114,11 +114,12 @@
     font-size: 15px;
 }
 
-.footer-list p {
+.footer-list li {
     list-style: square;
     float: right;
     color: deepskyblue;
     padding-bottom: 20px;
     padding-left: 15px;
     margin: 20px;
+    border-style: none;
 }
