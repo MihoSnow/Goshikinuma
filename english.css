@@ -92,13 +92,13 @@
 }
 
 .contents-item img1 {
-    width: 10%;
-    height: 10%;
+    width: 30%;
+    height: 30%;
 }
 
-.contents-item p1 {
+.contents-item li {
     background-color: orange;
-    padding: 10px;
+    padding: 50px 10px 10px 10px;
     margin: 10px;
 }
 
