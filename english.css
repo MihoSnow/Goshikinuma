@@ -32,13 +32,13 @@
 .selected1 {
     position: absolute;
     top: 0;
-    left: 733px;
+    left: 713px;
 }
 
 .selected2 {
     position: absolute;
     top: 0;
-    left: 950px;
+    left: 970px;
 }
 
 .selected3 {
@@ -91,7 +91,18 @@
     height: 80%;
 }
 
-.span {
+.contents-item img1 {
+    width: 10%;
+    height: 10%;
+}
+
+.contents-item p1 {
+    background-color: orange;
+    padding: 10px;
+    margin: 10px;
+}
+
+.contents-item span {
     font-size: 17px;
     font-style: bold;
 }
