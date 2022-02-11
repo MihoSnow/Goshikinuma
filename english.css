@@ -98,12 +98,23 @@
     height: 30%;
 }
 
-.contents-item li {
+.contents-item li1 {
     position: relative;
     list-style: none;
     background-color: orange;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 50px;
+    margin: 10px 350px 10px 350px;
+}
+
+.contents-item li2 {
+    position: relative;
+    list-style: none;
+    background-color: orange;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
     margin: 10px 350px 10px 350px;
 }
 
