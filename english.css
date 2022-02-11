@@ -99,23 +99,21 @@
 }
 
 .contents-item li1 {
-    position: relative;
-    list-style: none;
-    background-color: orange;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 50px;
-    margin: 10px 350px 10px 350px;
-}
-
-.contents-item li2 {
-    position: relative;
     list-style: none;
     background-color: orange;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 30px;
-    margin: 10px 350px 10px 350px;
+    margin: 10px 320px 10px 320px;
+}
+
+.contents-item li2 {
+    list-style: none;
+    background-color: orange;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin: 10px 320px 10px 320px;
 }
 
 span {
