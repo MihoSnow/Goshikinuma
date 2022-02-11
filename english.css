@@ -99,7 +99,7 @@
 }
 
 .contents-item li1 {
-    position: absolute;
+    position: relative;
     list-style: none;
     background-color: orange;
     padding-top: 20px;
@@ -109,7 +109,7 @@
 }
 
 .contents-item li2 {
-    position: absolute;
+    position: relative;
     list-style: none;
     background-color: orange;
     padding-top: 20px;
