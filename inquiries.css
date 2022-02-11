@@ -68,9 +68,7 @@
     position: relative;
 }
 
-.contact-form p,
-input {
-    position: absolute;
+.contact-form select1 {
     float: left;
     font-size: 20px;
     color: blue;
