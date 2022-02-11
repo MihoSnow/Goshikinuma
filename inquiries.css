@@ -69,7 +69,7 @@
 }
 
 .contact-form p {
-    position: relative;
+    float: left;
     font-size: 20px;
     color: blue;
     border-top: 1px solid grey;
@@ -79,7 +79,7 @@
     padding-left: 20px;
 }
 
-.span {
+.contact-form span {
     color: red;
 }
 
