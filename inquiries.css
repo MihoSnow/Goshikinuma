@@ -68,6 +68,24 @@
     position: relative;
 }
 
+.contact-form {
+    position: relative;
+}
+
+.contact-form p {
+    font-size: 20px;
+    color: royalblue;
+    border-top: solod 1px grey;
+    border-bottom: solid 1px grey;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.contact-form span {
+    color: red;
+}
+
 .icon::before {
     font-family: "Font Awesome 5 Brands";
     content: '\f099';
