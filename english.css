@@ -99,20 +99,22 @@
 }
 
 .contents-item li1 {
+    position: absolute;
     list-style: none;
     background-color: orange;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-left: 30px;
+    padding-left: 15px;
     margin: 25px 300px 25px 300px;
 }
 
 .contents-item li2 {
+    position: absolute;
     list-style: none;
     background-color: orange;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-left: 20px;
+    padding-left: 10px;
     margin: 25px 300px 25px 300px;
 }
 
