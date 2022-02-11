@@ -70,7 +70,8 @@
 
 .contact-form p,
 input {
-    position: absolute float: left;
+    position: absolute;
+    float: left;
     font-size: 20px;
     color: blue;
     border-top: 1px solid grey;
