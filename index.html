@@ -2,122 +2,538 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>裏磐梯</title>
-    <link rel="stylesheet" href="stylesheet.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <style>
+        /* リセットCSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ヘッダー */
+        .header {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .header-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c5282;
+        }
+
+        .header-logo2 {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .header-list ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        .header-list li {
+            background-color: #5a9fd4;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .header-list li:hover {
+            background-color: #4a8bc2;
+        }
+
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            transition: 0.3s;
+        }
+
+        /* メインコンテンツ */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .contents-item {
+            margin-bottom: 40px;
+        }
+
+        .contents-item h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: clamp(24px, 4vw, 35px);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contents-item h2 {
+            color: #2c5282;
+            font-size: clamp(20px, 3.5vw, 30px);
+            padding: 15px 0;
+            margin: 20px 0;
+            border-bottom: 3px solid #5a9fd4;
+            position: relative;
+        }
+
+        .contents-item h3 {
+            background-color: #e6f3ff;
+            color: #2c5282;
+            font-size: clamp(16px, 2.5vw, 20px);
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #5a9fd4;
+            border-radius: 4px;
+        }
+
+        .contents-item p {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        .contents-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .contents-item a {
+            color: #5a9fd4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contents-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* マップ */
+        .map-container {
+            margin: 20px 0;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        /* ソーシャルアイコン */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        .social-icons i {
+            color: #5a9fd4;
+            transition: color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .social-icons i:hover {
+            color: #4a8bc2;
+            transform: scale(1.1);
+        }
+
+        /* フッター */
+        .footer {
+            background-color: #2c5282;
+            color: white;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .footer-logo {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-list a {
+            color: #a0c4ff;
+            text-decoration: none;
+        }
+
+        .footer-list a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* タブレット用レスポンシブデザイン */
+        @media screen and (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-list ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header-list li {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .main {
+                padding: 15px;
+            }
+
+            .contents-item h1 {
+                padding: 15px;
+            }
+
+            .contents-item h2 {
+                padding: 10px 0;
+            }
+
+            .contents-item h3 {
+                padding: 12px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        /* スマートフォン用レスポンシブデザイン */
+        @media screen and (max-width: 480px) {
+            .header {
+                padding: 10px 15px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-title {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+
+            .header-logo {
+                font-size: 20px;
+            }
+
+            .header-logo2 {
+                font-size: 12px;
+            }
+
+            .header-list ul {
+                flex-direction: column;
+                width: 100%;
+                gap: 5px;
+            }
+
+            .header-list li {
+                text-align: center;
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .main {
+                padding: 10px;
+            }
+
+            .contents-item {
+                margin-bottom: 30px;
+            }
+
+            .contents-item p {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .social-icons {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .footer {
+                padding: 20px 15px;
+            }
+
+            .footer-logo {
+                font-size: 12px;
+            }
+        }
+
+        /* ハンバーガーメニュー表示時 */
+        @media screen and (max-width: 600px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .header-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+
+            .header-list.active {
+                display: block;
+            }
+
+            .header-list ul {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .header-list li {
+                margin: 5px 0;
+                text-align: center;
+            }
+        }
+
+        /* プリント用スタイル */
+        @media print {
+            .header-list,
+            .social-icons,
+            .footer {
+                display: none;
+            }
+
+            body {
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+
+            .contents-item h1,
+            .contents-item h2,
+            .contents-item h3 {
+                color: black !important;
+                background: none !important;
+                border: 1px solid black;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
     <div class="header">
-
-        <div class="header-logo">裏磐梯</div>
-        <div class="header-logo2">-五色沼湖沼群観光-</div>
-        <div class="header-list">
-            <ul>
-
-                <li class="selected2"><a href="inquiries.html">お問い合わせ</a></li>
-                <li class="selected3"><a href="english.html">English</a></li>
-            </ul>
+        <div class="header-content">
+            <div class="header-title">
+                <div class="header-logo">裏磐梯</div>
+                <div class="header-logo2">-五色沼湖沼群観光-</div>
+            </div>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="header-list" id="headerList">
+                <ul>
+                    <li>デジタルパンフレット</li>
+                    <li>お問い合わせ</li>
+                    <li>English</li>
+                </ul>
+            </div>
         </div>
-
     </div>
 
     <div class="main">
-
         <div class="contents-item">
             <h1>五色沼湖沼群</h1>
             <h2>神秘の湖沼「五色沼」</h2>
 
-            <img src="acgoshikikanko.jpg">
+            <img src="numa2.jpg" alt="五色沼の美しい風景">
 
-            <p>1888年に磐梯山頂北側が水蒸気爆発によって山体崩壊を起こし、岩なだれが川をせき止め、このエリアに数百もの湖沼が形成されました。そのうちの数十の湖沼群が「五色沼湖沼群」と呼ばれる様になりました。</p>
+            <p>1888年（明治21年）磐梯山頂北側、小磐梯を含む部分が水蒸気爆発によって山体崩壊を起こし、岩なだれが川をせき止め、このエリアに数百もの湖沼が形成されました。そのうちの数十の湖沼群が「五色沼湖沼群」です。</p>
 
-            <p> 2016年にミシュラン・グリーンガイド1つ星に認定。</p>
-            <p>正確には「五色沼湖沼群」と言い、毘沙門沼・赤沼・みどろ沼・竜沼・弁天沼・るり沼・青沼・柳沼などの数多くの湖沼の総称です。沼によって、エメラルドグリーン、コバルトブルー、ターコイズブルー、エメラルドブルー、パステルブルーと色が違う不思議な場所で、特に青沼は自然が作り出したものとは思えない綺麗な色。
-            </p>
+            <p>2016年にミシュラン・グリーンガイド1つ星に認定。</p>
+            <p>正確には「五色沼湖沼群」と言い、毘沙門沼・赤沼・みどろ沼・竜沼・弁天沼・るり沼・青沼・柳沼などの数多くの湖沼の総称。沼によって、エメラルドグリーン、コバルトブルー、ターコイズブルー、エメラルドブルー、パステルブルーと色が違う不思議な場所で「神秘の湖沼」と言われる。特に青沼は自然が作り出したものとは思えない綺麗な色。</p>
 
-            <p>色が異なる要因は、天候や季節、見る角度、水中に含まれる火山性物質などによると言われ、様々な色彩を見られることから「五色沼（ごしきぬま）」という名前がつきました。四季や天候、時間帯などによっても、少しずつちがった色にみえるのが「神秘の湖沼」と呼ばれる所以です。</p>
+            <p>５つの沼というわけではなく、様々な色彩を見られることから「五色沼（ごしきぬま）」という名前がつきました。色が異なる要因は、天候や季節、見る角度、水中に含まれる火山性物質などによると言われています。四季や天候、時間帯などによっても、少しずつちがった色にみえるので、一度だけでなく再び訪れてみることをおすすめします。</p>
 
             <p>最も大きな「毘沙門沼」では<a href="http://www.bankyouen.com">手漕ぎボート</a>を楽しむことができます。</p>
             <p>また雪解け後の芽吹き前の森や、落葉後の森の中では、小鳥たちを見つけやすくなるため、野鳥観察が楽しめます。</p>
 
             <p>そして雪解け後の春は、特に美しい湖沼の色を見せます。</p>
-
         </div>
-    </div>
-    <div class="main">
 
         <div class="contents-item">
-
             <h2>五色沼自然探勝路</h2>
-            <p>五色沼湖沼群を巡るハイキングコース。比較的平坦な道のり。 <br>▪全長 約4km <br>▪所要時間 片道約1時間30分 <br>▪難易度：初級
+            <p>五色沼湖沼群を巡るハイキングコース。比較的平坦な道のり。<br>
+                ▪全長：約4km<br>
+                ▪所要時間：1時間10分～1時間30分(片道)<br>
+                ▪難易度：初級
             </p>
-            <img src="acgoshikitanshouro.jpg">
-            <p>この一帯は、国立公園内の「特別保護地区（特に厳重に景観を保護する地域）」に指定されています。動植物の一切の採集が禁じられています。また、植生保護のため、コースの外には出ないようにしましょう。
-            </p>
-
+            <img src="Tanshoro.jpg" alt="五色沼自然探勝路のトレッキングコース">
+            <p>アップダウンの少ないコースですが、岩がごろごろしていたり、雨が降るとぬかるみができやすいため、足元には注意が必要です。この一帯は、国立公園内の「特別保護地区（特に厳重に景観を保護する地域）」に指定されており、動植物の一切の採集が禁じられています。また、植生保護のため、コースの外には出ないようにしましょう。</p>
         </div>
-    </div>
-    <div class="main">
 
         <div class="contents-item">
-
             <h3>●モデルルート</h3>
 
-            <p>■五色沼入口から</p>
-            <p>上記で紹介している毘沙門沼・赤沼・みどろ沼・竜沼・弁天沼・るり沼・青沼・柳沼、全ての沼を観ることが可能 <br>①裏磐梯ビジターセンターもしくは五色沼入口観光プラザに駐車 <br>②「五色沼入口」バス停乗車→「裏磐梯高原駅」バス停下車<br>
-                <a href="https://www.totobus.co.jp/bandai/timetable.html">⇒時刻表はこちら</a> <br>③柳沼から毘沙門沼までのトレッキング <br>①～③の所要時間：２時間程度 <br><br>※先にバスに乗車することで帰りのバスの時刻を気にせずにゆったり歩くことができます。
-
+            <p><strong>■五色沼入口から</strong></p>
+            <p>上記で紹介している全ての沼を観ることが可能<br>
+                ①裏磐梯ビジターセンターもしくは五色沼入口観光プラザに駐車<br>
+                ②「五色沼入口」バス停乗車→「裏磐梯高原駅」バス停下車<br>
+                <a href="https://www.totobus.co.jp/bandai/timetable.html">⇒時刻表はこちら</a><br>
+                ③柳沼から毘沙門沼までのトレッキング<br>
+                ①～③の所要時間：２時間程度<br><br>
+                ※先にバスに乗車することで帰りのバスの時刻を気にせずにゆったり歩くことができます。
             </p>
-            <p>■裏磐梯高原駅口から</p>
-            <p>柳沼・青沼・るり沼・弁天沼を観ることが可能 <br>①裏磐梯物産館に駐車 <br>②柳沼から弁天沼展望台までのトレッキング <br>①～②の所要時間：往復１時間程度 <br><br>※少ない距離でご覧になりたい方におすすめのコースです。
+
+            <p><strong>■裏磐梯高原駅口から</strong></p>
+            <p>柳沼・青沼・るり沼・弁天沼を観ることが可能<br>
+                ①裏磐梯物産館に駐車<br>
+                ②柳沼から弁天沼展望台までのトレッキング<br>
+                ①～②の所要時間：往復１時間程度<br><br>
+                ※時間のない方や少ない距離でご覧になりたい方におすすめ。
             </p>
 
             <h3>●アクセス</h3>
 
-            <p>探勝路(トレッキングコース)の入口は2箇所あり、それぞれに駐車場と路線バス停留所があります。 <br>①五色沼入口（毘沙門沼側） <br><br>■車の場合<br>
-                <a href="https://urabandai-vc.jp/">裏磐梯ビジターセンター</a>、または<a href="https://www.urabandai-inf.com/?page_id=25006">五色沼入口観光プラザ</a>（裏磐梯観光協会）駐車場を利用。毘沙門沼まで歩いて5分程度。大型バス可。 <br>■公共交通機関の場合 磐梯東都バス「五色沼入口」バス停下車
-                <a href="https://www.totobus.co.jp/bandai/timetable.html">⇒時刻表(①②③④)はこちら</a></p>
+            <p>探勝路(トレッキングコース)の入口は2箇所あり、それぞれに駐車場と路線バス停留所があります。</p>
+            
+            <p><strong>①五色沼入口（毘沙門沼側）</strong></p>
+            <p><strong>■車の場合</strong><br>
+                <a href="https://urabandai-vc.jp/">裏磐梯ビジターセンター</a>、または<a href="https://www.urabandai-inf.com/?page_id=25006">五色沼入口観光プラザ</a>（裏磐梯観光協会）駐車場を利用。毘沙門沼まで歩いて5分程度。大型バス可。<br>
+                <strong>■公共交通機関の場合</strong><br>
+                磐梯東都バス「五色沼入口」バス停下車<br>
+                <a href="https://www.totobus.co.jp/bandai/timetable.html">⇒時刻表(①②③④)はこちら</a>
+            </p>
 
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.7476733259045!2d140.08714301459392!3d37.65633702673921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8abb9a8e8c5875%3A0xd0ae73acf3b2046f!2z6KOP56OQ5qKv6Kaz5YWJ5Y2U5Lya!5e1!3m2!1sja!2sjp!4v1641379783480!5m2!1sja!2sjp"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.7476733259045!2d140.08714301459392!3d37.65633702673921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8abb9a8e8c5875%3A0xd0ae73acf3b2046f!2z6KOP56OQ5qKv6Kaz5YWJ5Y2U5Lya!5e1!3m2!1sja!2sjp!4v1641379783480!5m2!1sja!2sjp" allowfullscreen loading="lazy"></iframe>
+            </div>
 
-            <p>②裏磐梯高原駅口（柳沼・青沼・るり沼側）<br><br> ■車の場合<br>
-                <a href="http://urabandai-bussankan.com/">裏磐梯物産館</a>駐車場を利用。目の前が柳沼。大型バス可。<br> ■公共交通機関の場合 <br>磐梯東都バス「裏磐梯高原駅」バス停下車<br>
-                <a href="https://www.totobus.co.jp/bandai/timetable.html">⇒時刻表はこちら</a></p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.919736089435!2d140.06288691459378!3d37.651236227031845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8abb1081ebcc63%3A0x326377e3bb62bec5!2z6KOP56OQ5qKv54mp55Sj6aSo!5e1!3m2!1sja!2sjp!4v1641380235653!5m2!1sja!2sjp"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <p><strong>②裏磐梯高原駅口（柳沼・青沼・るり沼側）</strong></p>
+            <p><strong>■車の場合</strong><br>
+                <a href="http://urabandai-bussankan.com/">裏磐梯物産館</a>駐車場を利用。目の前が柳沼。大型バス可。<br>
+                <strong>■公共交通機関の場合</strong><br>
+                磐梯東都バス「裏磐梯高原駅」バス停下車<br>
+                <a href="https://www.totobus.co.jp/bandai/timetable.html">⇒時刻表はこちら</a>
+            </p>
 
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.919736089435!2d140.06288691459378!3d37.651236227031845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8abb1081ebcc63%3A0x326377e3bb62bec5!2z6KOP56OQ5qKv54mp55Sj6aSo!5e1!3m2!1sja!2sjp!4v1641380235653!5m2!1sja!2sjp" allowfullscreen loading="lazy"></iframe>
+            </div>
 
             <h3>●周辺の観光スポット</h3>
-            <p>＜美術館＞<br>
-                <a href="https://www.urabandai-inf.com/?page_id=25000">諸橋近代美術館</a> <br>アジア最大のサルヴァドール・ダリの美術館<br>
-
-
+            <p><strong>＜美術館＞</strong><br>
+                <a href="https://www.urabandai-inf.com/?page_id=25000">諸橋近代美術館</a><br>
+                アジア最大のサルヴァドール・ダリの美術館<br><br>
                 <a href="https://www.urabandai-inf.com/?page_id=25592">⇒その他の観光・絶景スポット</a>はこちら<br>
+                <a href="https://www.urabandai-inf.com/?page_id=25556">⇒探勝路／トレッキングコース一覧</a>はこちら
+            </p>
 
-                <a href="https://www.urabandai-inf.com/?page_id=25556">⇒探勝路／トレッキングコース一覧</a>はこちら</p>
-
-
-
+            <div class="social-icons">
+                <i class="fab fa-facebook fa-2x"></i>
+                <i class="fab fa-twitter fa-2x"></i>
+                <i class="fab fa-instagram fa-2x"></i>
+                <i class="fab fa-line fa-2x"></i>
+            </div>
         </div>
     </div>
 
     <div class="footer">
-        <div class="footer-logo">〒969-2701 福島県耶麻郡北塩原村大字桧原字剣ヶ峯
-        </div>
-
-        <div class="footer-list">
-
-            <li><a href="sitemap.html">サイトマップ</a></li>
-            <li><a href="sitepolicy.html">サイトポリシー</a></li>
-
+        <div class="footer-content">
+            <div class="footer-logo">
+                〒969-2701 福島県耶麻郡北塩原村大字桧原字剣ヶ峯1093-1055<br>
+                TEL：（0241）32-234　受付時間：9:00～16:30まで
+            </div>
+            <div class="footer-list">
+                <a href="index.html">サイトマップ</a>
+                <a href="https://github.com/MihoSnow/Site-Policy/index.html">サイトポリシー</a>
+            </div>
         </div>
     </div>
 
+    <script>
+        function toggleMenu() {
+            const headerList = document.getElementById('headerList');
+            headerList.classList.toggle('active');
+        }
+
+        // ウィンドウリサイズ時にメニューを閉じる
+        window.addEventListener('resize', function() {
+            const headerList = document.getElementById('headerList');
+            if (window.innerWidth > 600) {
+                headerList.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 
 </html>
