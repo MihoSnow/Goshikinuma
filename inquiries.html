@@ -3,99 +3,453 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>裏磐梯</title>
-    <link rel="stylesheet" href="inquiries.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .header-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .header-logo2 {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .header-list {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .header-list ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        .header-list li {
+            background-color: cadetblue;
+            border-radius: 0 0 5px 5px;
+            padding: 10px 20px;
+        }
+
+        .header-list li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .header-list li:hover {
+            background-color: #4a8b8b;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .contents-item h1 {
+            background-color: dodgerblue;
+            color: white;
+            font-size: 28px;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .contents-item p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .form-group span {
+            color: red;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: dodgerblue;
+            box-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Gender Selection */
+        .gender-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .gender-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .gender-option input[type="radio"] {
+            margin-right: 8px;
+            transform: scale(1.2);
+        }
+
+        .gender-option label {
+            margin-bottom: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        /* Checkbox */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 5px;
+            transform: scale(1.2);
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: dodgerblue;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #1871d1;
+        }
+
+        .submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .footer-list {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .footer-list li a {
+            color: deepskyblue;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-list li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .header-brand {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .header-logo {
+                font-size: 20px;
+            }
+
+            .header-logo2 {
+                font-size: 12px;
+            }
+
+            .header-list {
+                justify-content: center;
+            }
+
+            .header-list ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header-list li {
+                padding: 8px 15px;
+                margin: 2px;
+            }
+
+            .main {
+                padding: 15px;
+            }
+
+            .contents-item h1 {
+                font-size: 24px;
+                padding: 15px;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+
+            .gender-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-list {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-list li {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .contents-item h1 {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            .contact-form {
+                padding: 15px;
+            }
+
+            .form-group label {
+                font-size: 14px;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group textarea {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+                padding: 12px 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="header">
-
-        <div class="header-logo">裏磐梯</div>
-        <div class="header-logo2">-五色沼湖沼群観光-</div>
+        <div class="header-brand">
+            <div class="header-logo">裏磐梯</div>
+            <div class="header-logo2">-五色沼湖沼群観光-</div>
+        </div>
+        
         <div class="header-list">
             <ul>
-
-                <li class="selected2"><a href="inquiries.html">お問い合わせ</a></li>
-                <li class="selected3"><a href="english.html">English</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="english.html">English</a></li>
             </ul>
         </div>
-
     </div>
 
     <div class="main">
-
         <div class="contents-item">
             <h1>お問い合わせ</h1>
-
-
-            <p>必要事項をご記入し、送信してください。
-                <br>個人情報保護についてはこちらから。</p>
-
+            <p>必要事項をご記入し、送信してください。<br>個人情報保護についてはこちらから。</p>
         </div>
 
-        <div class="contact-form">
-
-
-            <p class="select1"> メールアドレス<span>(必須)</span></p>
-            <input class="select1">
-
-            <p class="select2">確認のためもう一度<span>(必須)</span></p>
-            <input class="select2">
-
-            <p class="select3">お名前(必須)</p>
-            <input class="select3">
-
-            <p class="select4">フリガナ<span>(必須)</span></p>
-            <input class="select4">
-
-            <p class="select5">性別<span>(必須)</span></p>
-            <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary">
-                    <input type="checkbox" name="男性" id="male" autocomplete="off">
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox" name="女性" id="female" autocomplete="off">
-                </label>
-
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="email">メールアドレス<span>(必須)</span></label>
+                <input type="email" id="email" name="email" required>
             </div>
 
-            <p class="select6">電話番号</p>
-            <input class="select6">
-
-            <p class="select7">郵便番号</p>
-            <input class="select7">
-
-            <p class="select8">ご住所</p>
-            <input class="select8">
-
-            <p class="select9">ご用件内容<span>(必須)</span></p>
-            <textarea class="select9"></textarea>
-
-            <p class="select10">送信確認<span>(必須)</span></p>
-            <div class="form-check">
-                <label class="form-check-label">
-                <input class="form-check-input" name="上記送信内容を確認したらチェックを入れてください" id="check" type="checkbox" value="checkedValue" aria-label="Text for screen reader">
-              </label>
+            <div class="form-group">
+                <label for="email-confirm">確認のためもう一度<span>(必須)</span></label>
+                <input type="email" id="email-confirm" name="email-confirm" required>
             </div>
 
-            <input type="submit" value="送信">
+            <div class="form-group">
+                <label for="name">お名前<span>(必須)</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
 
+            <div class="form-group">
+                <label for="furigana">フリガナ<span>(必須)</span></label>
+                <input type="text" id="furigana" name="furigana" required>
+            </div>
 
-        </div>
+            <div class="form-group">
+                <label>性別<span>(必須)</span></label>
+                <div class="gender-group">
+                    <div class="gender-option">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">男性</label>
+                    </div>
+                    <div class="gender-option">
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="female">女性</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">電話番号</label>
+                <input type="text" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label for="postal-code">郵便番号</label>
+                <input type="text" id="postal-code" name="postal-code">
+            </div>
+
+            <div class="form-group">
+                <label for="address">ご住所</label>
+                <input type="text" id="address" name="address">
+            </div>
+
+            <div class="form-group">
+                <label for="message">ご用件内容<span>(必須)</span></label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>送信確認<span>(必須)</span></label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirm-check" name="confirm" required>
+                    <label for="confirm-check">上記送信内容を確認したらチェックを入れてください</label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">送信</button>
+        </form>
     </div>
 
-
     <div class="footer">
-        <div class="footer-logo">〒969-2701 福島県耶麻郡北塩原村大字桧原字剣ヶ峯
-        </div>
-
-        <div class="footer-list">
-
-            <li><a href="sitemap.html">サイトマップ</a></li>
-            <li><a href="sitepolicy.html">サイトポリシー</a></li>
-
+        <div class="footer-content">
+            <div class="footer-logo">〒969-2701 福島県耶麻郡北塩原村大字桧原字剣ヶ峯</div>
+            <ul class="footer-list">
+                <li><a href="sitemap.html">サイトマップ</a></li>
+                <li><a href="sitepolicy.html">サイトポリシー</a></li>
+            </ul>
         </div>
     </div>
 

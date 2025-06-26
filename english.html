@@ -1,119 +1,501 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
-
-    <title>English</title>
-    <link rel="stylesheet" href="english.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URABANDAI - Goshikinuma Ponds</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .header-logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c5282;
+            margin-right: 15px;
+        }
+
+        .header-logo2 {
+            font-size: 16px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .header-list {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .header-list ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .header-list li {
+            background-color: cadetblue;
+            border-radius: 0 0 8px 8px;
+            padding: 12px 24px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-list li:hover {
+            background-color: #4a8b8b;
+        }
+
+        .header-list li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .contents-item {
+            margin-bottom: 50px;
+        }
+
+        .contents-item h1 {
+            background: linear-gradient(135deg, dodgerblue, #1871d1);
+            color: white;
+            font-size: 36px;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+        }
+
+        .contents-item h2 {
+            color: #2c5282;
+            font-size: 28px;
+            padding: 20px 0 15px 0;
+            margin: 25px 0 20px 0;
+            border-bottom: 3px solid #e2e8f0;
+            position: relative;
+        }
+
+        .contents-item h2::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: dodgerblue;
+        }
+
+        .contents-item h3 {
+            background-color: #e6f3ff;
+            color: #2c5282;
+            font-size: 22px;
+            padding: 15px 25px;
+            margin: 25px 0 15px 0;
+            border-left: 5px solid dodgerblue;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .contents-item p {
+            margin-bottom: 18px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .contents-item img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin: 25px 0;
+            display: block;
+        }
+
+        .access-map {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        /* Access Information */
+        .access-info {
+            background-color: #f7fafc;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #38a169;
+        }
+
+        .access-info span {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2d3748;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Links and Lists */
+        .contents-item ul {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .contents-item li {
+            background: linear-gradient(135deg, #ff8c42, #ff6b1a);
+            color: white;
+            padding: 15px 25px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(255, 140, 66, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contents-item li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 140, 66, 0.4);
+        }
+
+        .contents-item li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contents-item li a:hover {
+            text-decoration: underline;
+        }
+
+        .external-link {
+            color: dodgerblue;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .external-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            list-style: none;
+        }
+
+        .footer-list li a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-list li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .header-brand {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .header-logo {
+                font-size: 24px;
+            }
+
+            .header-logo2 {
+                font-size: 14px;
+            }
+
+            .header-list {
+                justify-content: center;
+            }
+
+            .header-list ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header-list li {
+                padding: 10px 18px;
+                margin: 3px;
+            }
+
+            .main {
+                padding: 20px 15px;
+            }
+
+            .contents-item h1 {
+                font-size: 28px;
+                padding: 20px;
+            }
+
+            .contents-item h2 {
+                font-size: 24px;
+                padding: 15px 0 10px 0;
+            }
+
+            .contents-item h3 {
+                font-size: 20px;
+                padding: 12px 20px;
+            }
+
+            .contents-item p {
+                font-size: 15px;
+            }
+
+            .access-info {
+                padding: 20px;
+            }
+
+            .contents-item li {
+                padding: 12px 20px;
+                margin: 10px 0;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-list {
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-list li {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            .contents-item h1 {
+                font-size: 24px;
+                padding: 15px;
+            }
+
+            .contents-item h2 {
+                font-size: 22px;
+            }
+
+            .contents-item h3 {
+                font-size: 18px;
+                padding: 10px 15px;
+            }
+
+            .contents-item p {
+                font-size: 14px;
+            }
+
+            .access-info {
+                padding: 15px;
+            }
+
+            .access-info span {
+                font-size: 16px;
+            }
+
+            .contents-item li {
+                padding: 10px 15px;
+            }
+
+            .footer-list {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .header-list, .footer {
+                display: none;
+            }
+            
+            .contents-item img {
+                max-width: 100%;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="header">
-
-        <div class="header-logo">URABANDAI</div>
-        <div class="header-logo2">-Lake district of Japan-</div>
-        <div class="header-list">
-            <ul>
-
-                <li class="selected2"><a>Inquiries</a></li>
-                <li class="selected3"><a href="index.html">Japanese</a></li>
-            </ul>
+        <div class="header-container">
+            <div class="header-brand">
+                <div class="header-logo">URABANDAI</div>
+                <div class="header-logo2">-Lake district of Japan-</div>
+            </div>
+            
+            <div class="header-list">
+                <ul>
+                    <li><a href="inquiries.html">Inquiries</a></li>
+                    <li><a href="index.html">Japanese</a></li>
+                </ul>
+            </div>
         </div>
-
     </div>
 
     <div class="main">
-
         <div class="contents-item">
             <h1>Goshikinuma Ponds</h1>
             <h2>Mysterious lake "Goshikinuma"</h2>
 
-            <img src="acgoshikikanko.jpg">
+            <img src="acgoshikikanko.jpg" alt="Beautiful view of Goshikinuma Ponds showing the mysterious colored waters">
 
             <p>Goshikinuma Ponds has a 1-Star rating in the Michelin Green Guide of 2016.</p>
 
-            <p> The Goshikinuma Pond group is a group of lakes and ponds which include Bishamonnuma, Akanuma, Midoronuma, Tatsunuma, Bentennuma, Rurinuma, Aonuma and Yanaginuma.</p>
-            <p>It is said that the "mysterious lake" is a place where the colours of emerald green, cobalt blue, turquoise blue, emerald blue, and pastel blue differ depending on the swamp. Aonuma in particular has such a beautiful colour that it is hard
-                to believe as something created by nature.
-            </p>
+            <p>The Goshikinuma Pond group is a group of lakes and ponds which include Bishamonnuma, Akanuma, Midoronuma, Tatsunuma, Bentennuma, Rurinuma, Aonuma and Yanaginuma.</p>
+            
+            <p>It is said that the "mysterious lake" is a place where the colours of emerald green, cobalt blue, turquoise blue, emerald blue, and pastel blue differ depending on the swamp. Aonuma in particular has such a beautiful colour that it is hard to believe as something created by nature.</p>
 
-            <p>The name, Goshikinuma, as written in Japanese (Five colour ponds), is rather a misnomer. The area consists of many more than five ponds, and is also famous for displaying a much larger spectrum of spectacular colours. Factors such weather,
-                season, angle of view, volcanic substances contained in the water, etc can affect the colours that you see. </p>
+            <p>The name, Goshikinuma, as written in Japanese (Five colour ponds), is rather a misnomer. The area consists of many more than five ponds, and is also famous for displaying a much larger spectrum of spectacular colours. Factors such weather, season, angle of view, volcanic substances contained in the water, etc can affect the colours that you see.</p>
 
             <p>You can enjoy rowboats at the biggest pond, Bishamonnuma.</p>
             <p>Birds are best observed after the winter thaw but before new sprouting, as well as after the falling of the leaves.</p>
 
             <p>In spring after the snow melts, the colours of the lakes and ponds are particularly beautiful.</p>
-
         </div>
-    </div>
-    <div class="main">
 
         <div class="contents-item">
-
             <h2>Goshikinuma Pond trail</h2>
-            <img src="acgoshikitanshouro.jpg">
-            <p>The Goshikinuma Pond trail is about 3.6 km in length and it takes about 70 to 90 minutes one way. It is a relatively flat hiking course.
-            </p>
+            <img src="acgoshikitanshouro.jpg" alt="Scenic trail path through Goshikinuma area">
+            
+            <p>The Goshikinuma Pond trail is about 3.6 km in length and it takes about 70 to 90 minutes one way. It is a relatively flat hiking course.</p>
 
-            <p>Although it is a course with few ups and downs, caution is still necessary as rocks can be slippery and it can get muddy in rainy weather.<br> This area is designated as a "special protected area" in the national park (especially in areas
-                that strictly protect the landscape), and any collection of animals and plants is prohibited. In order to help protect vegetation, please keep to established trails.
-            </p>
+            <p>Although it is a course with few ups and downs, caution is still necessary as rocks can be slippery and it can get muddy in rainy weather.<br> This area is designated as a "special protected area" in the national park (especially in areas that strictly protect the landscape), and any collection of animals and plants is prohibited. In order to help protect vegetation, please keep to established trails.</p>
 
             <p>There are two entrances to the trail, each with a parking lot and a bus stop.</p>
 
             <p>When coming by car, you can park at one parking lot, walk one way along the trail, and return to your car by bus.<br> (As the number of buses is limited, we recommend checking the timetable in advance.)</p>
         </div>
-    </div>
-    <div class="main">
 
         <div class="contents-item">
-
             <h3>The formation of Goshikinuma</h3>
 
-            <p>In 1888, the summit of Mount Bandai on the northern side collapsed due to a steam explosion. The subsequent rock avalanche blocked the river and this led to the formation of lakes in this area. There are dozens of lakes, among them Goshikinuma
-                lake group.</p>
+            <p>In 1888, the summit of Mount Bandai on the northern side collapsed due to a steam explosion. The subsequent rock avalanche blocked the river and this led to the formation of lakes in this area. There are dozens of lakes, among them Goshikinuma lake group.</p>
 
             <h3>Access</h3>
 
-            <img1 src="Access to Goshikinuma.png">
-                <p>There are two entrances to the trail, each with a parking lot and a bus stop.</p>
-                <p><span>Goshinuma entrance</span>(Bishamonnuma Pond side)</p>
-                <p>By Car: Use the Urabandai Visitor Center, or Goshikinuma Entrance Tourist Plaza (Urabandai Tourist Association) parking lot. It is about 5 minutes on foot to Bishamonnuma. There is also a large bus parking area there.
-                    <br>By Bus: Get off at "Goshikinuma Iriguchi" bus stop.</p>
+            <img class="access-map" src="Access to Goshikinuma.png" alt="Access map to Goshikinuma Ponds showing transportation routes">
+            
+            <p>There are two entrances to the trail, each with a parking lot and a bus stop.</p>
+            
+            <div class="access-info">
+                <span>Goshikinuma entrance (Bishamonnuma Pond side)</span>
+                <p><strong>By Car:</strong> Use the Urabandai Visitor Center, or Goshikinuma Entrance Tourist Plaza (Urabandai Tourist Association) parking lot. It is about 5 minutes on foot to Bishamonnuma. There is also a large bus parking area there.</p>
+                <p><strong>By Bus:</strong> Get off at "Goshikinuma Iriguchi" bus stop.</p>
+            </div>
 
+            <div class="access-info">
+                <span>Urabandai Kogen-eki entrance (Yanaginuma Pond, Aonuma Pond and Rurinuma Pond side)</span>
+                <p><strong>By Car:</strong> Use the Urabandai Bussankan parking lot. Yanaginuma Pond is in front of the parking lot. There is also a large bus parking area there.</p>
+                <p><strong>By Bus:</strong> Get off at "Urabandai Kogen-eki" bus stop.</p>
+            </div>
 
-                <p><span>Urabandai Kogen-eki entrance</span>(Yanaginuma Pond, Aonuma Pond and Rurinuma Pond side)</p>
-                <p>By Car: Use the Urabandai Bussankan parking lot. Yanaginuma Pond is in front of the parking lot. There is also a large bus parking area there.
-                    <br>By Bus: Get off at "Urabandai Kogen-eki" bus stop.</p>
+            <h3>Nearby attractions</h3>
+            <p><strong>Museum</strong><br>
+            <a href="https://www.urabandai-inf.com/en/?page_id=25000" class="external-link">Morohashi Museum of Modern Art</a><br>
+            This museum contains largest collection of the works of Salvador Dalí in Asia.</p>
 
-                <h3>Nearby attractions</h3>
-                <p>Museum<br>
-                    <a href="https://www.urabandai-inf.com/en/?page_id=25000">Morohashi Museum of Modern Art</a> <br>This museum contains largest collection of the works of Salvador Dalí in Asia.<br>
-
-                    <ul>
-                        <li><a href="https://www.urabandai-inf.com/en/?page_id=29854">About Urabandai</a></li>
-
-                        <li><a href="https://www.urabandai-inf.com/en/?page_id=25556">The trekking cource list</a></li>
-
-
-                    </ul>
-
+            <ul>
+                <li><a href="https://www.urabandai-inf.com/en/?page_id=29854">About Urabandai</a></li>
+                <li><a href="https://www.urabandai-inf.com/en/?page_id=25556">The trekking course list</a></li>
+            </ul>
         </div>
     </div>
 
     <div class="footer">
-        <div class="footer-logo">Aza Kengamine, Ooaza Hibara, Kitashiobara-mura, Yama-gun, <br>Fukushima Prefecture, 969-2701 Japan
-        </div>
+        <div class="footer-container">
+            <div class="footer-logo">
+                Aza Kengamine, Ooaza Hibara, Kitashiobara-mura, Yama-gun,<br>
+                Fukushima Prefecture, 969-2701 Japan
+            </div>
 
-        <div class="footer-list">
-
-            <li><a>Site map</a></li>
-            <li><a>Policy of this website</a></li>
-
+            <ul class="footer-list">
+                <li><a href="sitemap.html">Site map</a></li>
+                <li><a href="sitepolicy.html">Policy of this website</a></li>
+            </ul>
         </div>
     </div>
 
