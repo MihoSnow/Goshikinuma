@@ -3,49 +3,436 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サイトポリシー</title>
-    <link rel="stylesheet" href="sitepolicy.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ヘッダー */
+        .header {
+            padding: 10px 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .header-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .header-logo2 {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .header-list {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-list ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        .header-list li {
+            background-color: cadetblue;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 0 0 5px 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-list li:hover {
+            background-color: #5f9ea0;
+        }
+
+        /* ハンバーガーメニュー */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            transition: 0.3s;
+        }
+
+        /* メイン */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .contents-item h1 {
+            background-color: dodgerblue;
+            color: white;
+            font-size: 2.5rem;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .contents-item h2 {
+            color: black;
+            font-size: 2rem;
+            padding: 20px 0 10px 20px;
+            margin: 20px 0;
+            border-bottom: 4px outset #ccc;
+        }
+
+        .contents-item h3 {
+            background-color: lightblue;
+            color: black;
+            font-size: 1.2rem;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .contents-item h4 {
+            color: rebeccapurple;
+            font-size: 1.1rem;
+            padding: 15px 0 10px 15px;
+            margin: 15px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .contents-item p {
+            padding: 10px 0;
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .contents-item ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .contents-item li {
+            margin: 8px 0;
+            padding: 5px 0;
+            line-height: 1.6;
+        }
+
+        /* ソーシャルアイコン */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-icons i {
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons i:hover {
+            color: dodgerblue;
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            list-style: none;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .icon img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .icon img:hover {
+            transform: scale(1.1);
+        }
+
+        /* フッター */
+        .footer {
+            background-color: #f8f9fa;
+            border-top: 2px solid #ddd;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-size: 14px;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-list ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .footer-list li {
+            color: deepskyblue;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer-list li:hover {
+            color: dodgerblue;
+        }
+
+        /* タブレット対応 */
+        @media screen and (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .header-brand {
+                width: 100%;
+            }
+
+            .header-list {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .header-list ul {
+                flex-wrap: wrap;
+            }
+
+            .header-list li {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            .contents-item h1 {
+                font-size: 2rem;
+                padding: 15px;
+            }
+
+            .contents-item h2 {
+                font-size: 1.5rem;
+                padding: 15px 0 8px 15px;
+            }
+
+            .contents-item h3 {
+                font-size: 1.1rem;
+                padding: 12px 15px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-logo {
+                min-width: auto;
+            }
+
+            .footer-list ul {
+                justify-content: center;
+            }
+        }
+
+        /* スマートフォン対応 */
+        @media screen and (max-width: 480px) {
+            .main {
+                padding: 15px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .header-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+
+            .header-list.active {
+                display: block;
+            }
+
+            .header-list ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .header-list li {
+                width: 100%;
+                text-align: center;
+                border-radius: 0;
+                margin: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.3);
+            }
+
+            .header-logo {
+                font-size: 20px;
+            }
+
+            .header-logo2 {
+                font-size: 14px;
+            }
+
+            .contents-item h1 {
+                font-size: 1.8rem;
+                padding: 12px;
+            }
+
+            .contents-item h2 {
+                font-size: 1.3rem;
+                padding: 12px 0 6px 12px;
+            }
+
+            .contents-item h3 {
+                font-size: 1rem;
+                padding: 10px 12px;
+            }
+
+            .contents-item h4 {
+                font-size: 1rem;
+                padding: 10px 0 6px 12px;
+            }
+
+            .contents-item p {
+                padding: 8px 0;
+            }
+
+            .contents-item ul {
+                padding-left: 15px;
+            }
+
+            .social-icons {
+                gap: 15px;
+            }
+
+            .icon {
+                gap: 10px;
+            }
+
+            .icon img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .footer-list ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* 極小スマートフォン対応 */
+        @media screen and (max-width: 320px) {
+            .main {
+                padding: 10px;
+            }
+
+            .contents-item h1 {
+                font-size: 1.5rem;
+                padding: 10px;
+            }
+
+            .contents-item h2 {
+                font-size: 1.2rem;
+            }
+
+            .contents-item h3 {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
     <div class="header">
-
-        <div class="header-logo">裏磐梯</div>
-        <div class="header-logo2">-五色沼湖沼群観光-</div>
-        <div class="header-list">
-            <ul>
-
-                <li class="selected2">お問い合わせ</li>
-                <li class="selected3">English</li>
-            </ul>
+        <div class="header-content">
+            <div class="header-brand">
+                <div class="header-logo">裏磐梯</div>
+                <div class="header-logo2">-五色沼湖沼群観光-</div>
+            </div>
+            
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="header-list" id="headerList">
+                <ul>
+                    <li><a href="inquiries.html">お問い合わせ</a></li>
+                    <li><a href="english.html">English</a></li>
+                </ul>
+            </div>
         </div>
-
     </div>
 
     <div class="main">
-
         <div class="contents-item">
             <h1>サイトポリシー</h1>
             <h2>個人情報保護</h2>
 
             <h3>●はじめに</h3>
-
             <p>当ホームページは、お客様のプライバシーと個人情報（以下、「個人情報」という）の重要性を十分に認識しています。また、その保護に最大限の注意を払っています。</p>
-
-            <p> なお、個人情報とは、お客様の住所、氏名、電話番号、Eメールアドレス、および嗜好など、本サイトのサービスをご利用される際に送信された、お客様個人を識別できる情報を指します。</p>
+            <p>なお、個人情報とは、お客様の住所、氏名、電話番号、Eメールアドレス、および嗜好など、本サイトのサービスをご利用される際に送信された、お客様個人を識別できる情報を指します。</p>
 
             <h3>●個人情報の収集について</h3>
-
-            <p>本サイトで個人情報を収集する目的は、より利便性の高いサービスをご提供することにあります。個人情報収集は、必要最小限度内で行います。
-            </p>
-
-            <p>収集した個人情報は、常に情報入力ページから行います。事前にお客様に断りなく個人情報を収集させていただくことは、原則としてありません。 また、お客様が当会に対して個人情報の提供を希望されないときは、お客様の判断により、情報を提供しないことが可能です。 ただし、サービスによっては、個人情報のご提供が、サービス利用の前提条件となるものがあります。</p>
+            <p>本サイトで個人情報を収集する目的は、より利便性の高いサービスをご提供することにあります。個人情報収集は、必要最小限度内で行います。</p>
+            <p>収集した個人情報は、常に情報入力ページから行います。事前にお客様に断りなく個人情報を収集させていただくことは、原則としてありません。また、お客様が当会に対して個人情報の提供を希望されないときは、お客様の判断により、情報を提供しないことが可能です。ただし、サービスによっては、個人情報のご提供が、サービス利用の前提条件となるものがあります。</p>
 
             <h3>●個人情報の利用と開示について</h3>
-
             <p>当ホームページでは、お客様に各種サービスをご提供する目的で、お客様の個人情報の一部を集計・分析し、一般的な統計情報を作成し、ホームページ上に掲載することがあります。この場合、お客様個人が識別できるような情報を排除し、完全な匿名情報として取扱います。</p>
             <p>当会がお客様からご提供いただいた個人情報を利用、開示する場合は、以下のいずれかに該当する場合のみといたします。</p>
 
@@ -55,83 +442,66 @@
                 <li>3.お客様の同意がある場合</li>
                 <li>4.法律に基づき、しかるべき相手に対し情報を開示しなければならない場合</li>
                 <li>5.当会の権利や資産、またはユーザーの権利や資産、生命を保護するために必要な場合</li>
-
             </ul>
 
             <h3>●お客様情報のプライベートの照会・変更・削除</h3>
-
             <p>お客様からご提供いただいたプライベート情報は、お客様から内容を照会したいというご依頼がありましたら、最新の情報をご提供します。また、お客様からプライベート情報の変更、削除のご依頼があったときは、速やかにその処理を行います。</p>
 
             <h3>●IPアドレスの利用</h3>
-
             <p>当ホームページでは、Webサーバに記録されたIPアドレスのログを、以下の目的で利用します。IPアドレスでお客様個人を特定することはできません。</p>
 
             <ul>
-
                 <li>1.サーバで発生した問題の原因を分析するため</li>
                 <li>2.サイト管理のため</li>
-
             </ul>
 
             <h3>●クッキーの利用</h3>
-
             <p>当ホームページではクッキー（cookies）と呼ばれる技術を使用することがあります。クッキーはウェブサイトからお客様のコンピュータに送信する小さなデータです。お客様のパソコンにファイルとして格納されることがあります。本サイトでは、お客様がご訪問された際に、ページを移動するなどの操作を行うたびにログオン要求が繰り返されるような不便を避けるために、クッキーを利用します。</p>
-
-            <p> お客様のブラウザの設定により、クッキーが送られてきたときに、その受取の可否などを指定することができます。</p>
-
-
+            <p>お客様のブラウザの設定により、クッキーが送られてきたときに、その受取の可否などを指定することができます。</p>
 
             <h4>▶サイト外のリンク</h4>
-
             <p>本サイト上のページから外部リンクされている他のサイトやサービスは、本サイトとは異なる個人情報に対する規定や方針の元に運営されています。</p>
-
             <p>本サイトでは、これらリンク先でお客様が行う個人情報提供についての安全性を保証しません。また個人情報提供に関する一切の義務や責任も負いません。</p>
 
             <h4>▶著作権について</h4>
-
             <p>本サイトに含まれるすべてのコンテンツの著作権は、当会に帰属します。但し、個々の画像についての著作権は提供者に帰属します。また、コンテンツを利用するときは、事前に当会の許可（書面による許可）を得てください。事前の許可なくコンテンツの改変、転用、第三者への配布、販売などを行うことを禁止します。</p>
-
         </div>
     </div>
 
-    <p><i class="fa fa-facebook fa-2x"></i></p>
-    <p><i class="fa fa-twitter fa-2x"></i></p>
-    <p><i class="fa fa-instagram fa-2x"></i></p>
-    <p><i class="fa fa-line fa-2x"></i></p>
-
-    <ul class="icon">
-        <li>
-            <a href="#"><img src="images/icon_facebook.png" alt="Facebook"></a>
-        </li>
-        <li>
-            <a href="#"><img src="images/icon_twitter.png" alt="Twitter"></a>
-        </li>
-        <li>
-            <a href="#"><img src="images/icon_instagram.png" alt="Instagram"></a>
-        </li>
-        <li>
-            <a href="#"><img src="images/icon_youtube.png" alt="YouTube"></a>
-        </li>
-        <li>
-            <a href="#"><img src="images/icon_line.png" alt="LINE"></a>
-        </li>
-    </ul>
-
+    <div class="social-icons">
+        <i class="fab fa-facebook fa-2x"></i>
+        <i class="fab fa-twitter fa-2x"></i>
+        <i class="fab fa-instagram fa-2x"></i>
+        <i class="fab fa-line fa-2x"></i>
     </div>
-    </div>
+
+    
 
     <div class="footer">
-        <div class="footer-logo">〒969-2701 福島県耶麻郡北塩原村大字桧原字剣ヶ峯
-        </div>
-
-        <div class="footer-list">
-            <ul>
-                <li>サイトマップ</li>
-                <li>サイトポリシー</li>
-            </ul>
+        <div class="footer-content">
+            <div class="footer-logo">〒969-2701 福島県耶麻郡北塩原村大字桧原字剣ヶ峯</div>
+            <div class="footer-list">
+                <ul>
+                    <li><a href="sitemap.html">サイトマップ</a></li>
+                    <li><a href="sitepolicy.html">サイトポリシー</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
+    <script>
+        function toggleMenu() {
+            const headerList = document.getElementById('headerList');
+            headerList.classList.toggle('active');
+        }
+
+        // ウィンドウサイズ変更時の処理
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 480) {
+                document.getElementById('headerList').classList.remove('active');
+            }
+        });
+    </script>
 </body>
 
 </html>
