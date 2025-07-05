@@ -48,11 +48,6 @@
             font-weight: bold;
             color: #2c5282;
             margin-right: 15px;
-            text-decoration: none;
-        }
-
-        .header-logo:hover {
-            color: #1a365d;
         }
 
         .header-logo2 {
@@ -214,11 +209,6 @@
         .current-page a {
             color: #2c5282;
             font-weight: 600;
-            cursor: default;
-        }
-
-        .current-page:hover a {
-            color: #2c5282;
         }
 
         /* Breadcrumb */
@@ -281,18 +271,6 @@
         .footer-list li a:hover {
             color: white;
             text-decoration: underline;
-        }
-
-        /* Demo page styles - これらは実際のページが存在しない場合の代替表示 */
-        .demo-notice {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-            color: #856404;
-            font-size: 14px;
-            text-align: center;
         }
 
         /* Responsive Design */
@@ -412,7 +390,7 @@
     <div class="header">
         <div class="header-container">
             <div class="header-brand">
-                <a href="index.html" class="header-logo">裏磐梯</a>
+                <div class="header-logo">裏磐梯</div>
                 <div class="header-logo2">-五色沼湖沼群観光-</div>
             </div>
             
@@ -433,16 +411,12 @@
             
             <h1>サイトマップ</h1>
 
-            <div class="demo-notice">
-                <strong>注意:</strong> このデモでは、実際のページファイルが存在しない場合があります。リンクをクリックしてもページが見つからない場合は、該当するHTMLファイルを作成してください。
-            </div>
-
             <nav class="sitemap-nav">
                 <ul class="sitemap-list">
                     <li class="sitemap-item">
                         <a href="index.html">
                             <i class="icon fas"></i>
-                            五色沼湖沼群（ホーム）
+                            五色沼湖沼群
                         </a>
                     </li>
                     
@@ -456,7 +430,7 @@
                     <li class="sitemap-item">
                         <a href="english.html">
                             <i class="icon fas"></i>
-                            English（英語版）
+                            English
                         </a>
                     </li>
                     
@@ -470,7 +444,7 @@
                     <li class="sitemap-item current-page">
                         <a href="sitemap.html">
                             <i class="icon fas"></i>
-                            サイトマップ（現在のページ）
+                            サイトマップ
                         </a>
                     </li>
                 </ul>
@@ -490,37 +464,6 @@
             </ul>
         </div>
     </div>
-
-    <script>
-        // リンクのクリック処理
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('a[href]');
-            
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    
-                    // 現在のページ（サイトマップ）の場合は何もしない
-                    if (href === 'sitemap.html') {
-                        e.preventDefault();
-                        return;
-                    }
-                    
-                    // 実際のページファイルが存在するかの簡易チェック
-                    // （実際の実装では、これらのファイルが存在することを前提とします）
-                    const validPages = ['index.html', 'inquiries.html', 'english.html', 'sitepolicy.html'];
-                    
-                    if (validPages.includes(href)) {
-                        // 有効なページへのナビゲーション
-                        console.log(`ナビゲート中: ${href}`);
-                    } else {
-                        // デモ用のアラート（実際の運用では不要）
-                        console.log(`リンク先: ${href}`);
-                    }
-                });
-            });
-        });
-    </script>
 
 </body>
 

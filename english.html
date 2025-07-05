@@ -154,7 +154,7 @@
         }
 
         .access-map {
-            width: 40%;
+            width: 20%;
             max-width: 400px;
             height: auto;
             border-radius: 8px;
@@ -177,6 +177,25 @@
             color: #2d3748;
             display: block;
             margin-bottom: 10px;
+        }
+        
+        /* マップ */
+        .map-container {
+            margin: 20px 0;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
         }
 
         /* Links and Lists */
@@ -248,6 +267,8 @@
         .footer-list {
             display: flex;
             flex-direction: column;
+            text-align: left;
+            margin-left: 10px;
             gap: 15px;
             list-style: none;
         }
@@ -456,8 +477,6 @@
             <p>In 1888, the summit of Mount Bandai on the northern side collapsed due to a steam explosion. The subsequent rock avalanche blocked the river and this led to the formation of lakes in this area. There are dozens of lakes, among them Goshikinuma lake group.</p>
 
             <h3>Access</h3>
-
-            <img class="access-map" src="Access to Goshikinuma.png" alt="Access map to Goshikinuma Ponds showing transportation routes">
             
             <p>There are two entrances to the trail, each with a parking lot and a bus stop.</p>
             
@@ -467,10 +486,18 @@
                 <p><strong>By Bus:</strong> Get off at "Goshikinuma Iriguchi" bus stop.</p>
             </div>
 
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2323.8354760082066!2d140.08740353528967!3d37.654586230312326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sjp!4v1751692443817!5m2!1sen!2sjp" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
             <div class="access-info">
                 <span>Urabandai Kogen-eki entrance (Yanaginuma Pond, Aonuma Pond and Rurinuma Pond side)</span>
                 <p><strong>By Car:</strong> Use the Urabandai Bussankan parking lot. Yanaginuma Pond is in front of the parking lot. There is also a large bus parking area there.</p>
                 <p><strong>By Bus:</strong> Get off at "Urabandai Kogen-eki" bus stop.</p>
+            </div>
+
+             <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2323.950047156558!2d140.065548896236!3d37.65092518069443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sjp!4v1751692290592!5m2!1sen!2sjp" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <h3>Nearby attractions</h3>
