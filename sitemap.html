@@ -114,129 +114,93 @@
             box-shadow: 0 2px 10px rgba(30, 144, 255, 0.3);
         }
 
-        /* Sitemap Navigation */
+
+         /* タイトル */
+        h1 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+            border-radius: 2px;
+        }
+
+        /* サイトマップナビゲーション */
         .sitemap-nav {
-            padding: 40px 30px;
+            margin-top: 2rem;
         }
 
         .sitemap-list {
-            display: grid;
-            gap: 20px;
             list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
         }
 
         .sitemap-item {
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 20px 25px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
             transition: all 0.3s ease;
-            position: relative;
             overflow: hidden;
         }
 
-        .sitemap-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, dodgerblue, #1871d1);
-            transition: width 0.3s ease;
-        }
-
         .sitemap-item:hover {
+            border-color: #3b82f6;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            border-color: dodgerblue;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
         }
 
-        .sitemap-item:hover::before {
-            width: 100%;
-            opacity: 0.05;
+        .sitemap-item.current-page {
+            border-color: #3b82f6;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
         .sitemap-item a {
-            color: #2d3748;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 15px;
-            transition: color 0.3s ease;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
         }
 
         .sitemap-item:hover a {
-            color: dodgerblue;
+            color: #3b82f6;
+        }
+
+        .sitemap-item.current-page a {
+            color: #3b82f6;
         }
 
         .sitemap-item .icon {
-            font-size: 20px;
-            color: dodgerblue;
+            margin-right: 1rem;
+            font-size: 1.2rem;
             width: 24px;
             text-align: center;
+            color: #3b82f6;
         }
 
-        /* Specific icons for different pages */
-        .sitemap-item:nth-child(1) .icon::before {
-            content: '\f6ff'; /* mountain */
+        .sitemap-item .icon::before {
+            content: '\f0c1'; /* FontAwesome link icon */
         }
 
-        .sitemap-item:nth-child(2) .icon::before {
-            content: '\f0e0'; /* envelope */
-        }
-
-        .sitemap-item:nth-child(3) .icon::before {
-            content: '\f0ac'; /* globe */
-        }
-
-        .sitemap-item:nth-child(4) .icon::before {
-            content: '\f4ee'; /* shield */
-        }
-
-        .sitemap-item:nth-child(5) .icon::before {
-            content: '\f0e8'; /* sitemap */
-        }
-
-        /* Current page indicator */
-        .current-page {
-            background: linear-gradient(135deg, #bee3f8, #90cdf4);
-            border-color: dodgerblue;
-        }
-
-        .current-page::before {
-            width: 100%;
-            opacity: 0.1;
-        }
-
-        .current-page a {
-            color: #2c5282;
-            font-weight: 600;
-            cursor: default;
-        }
-
-        .current-page:hover a {
-            color: #2c5282;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            background-color: #f7fafc;
-            padding: 15px 30px;
-            margin-bottom: 0;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .breadcrumb a {
-            color: dodgerblue;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
+        .sitemap-item.current-page .icon::before {
+            content: '\f3c5'; /* FontAwesome map-marker-alt icon */
         }
 
         /* Footer */
@@ -433,9 +397,6 @@
             
             <h1>サイトマップ</h1>
 
-            <div class="demo-notice">
-                <strong>注意:</strong> このデモでは、実際のページファイルが存在しない場合があります。リンクをクリックしてもページが見つからない場合は、該当するHTMLファイルを作成してください。
-            </div>
 
             <nav class="sitemap-nav">
                 <ul class="sitemap-list">
@@ -492,7 +453,7 @@
     </div>
 
     <script>
-        // リンクのクリック処理
+         リンクのクリック処理
         document.addEventListener('DOMContentLoaded', function() {
             const links = document.querySelectorAll('a[href]');
             
@@ -501,9 +462,11 @@
                     const href = this.getAttribute('href');
                     
                     // 現在のページ（サイトマップ）の場合は何もしない
-                    if (href === 'sitemap.html') {
-                        e.preventDefault();
-                        return;
+                   if (validPages.includes(href)) {
+                    window.location.href = href; // ← ページを遷移させる
+                     } else {
+                    e.preventDefault();
+                    alert("ページが存在しません。");
                     }
                     
                     // 実際のページファイルが存在するかの簡易チェック
@@ -515,7 +478,7 @@
                         console.log(`ナビゲート中: ${href}`);
                     } else {
                         // デモ用のアラート（実際の運用では不要）
-                        console.log(`リンク先: ${href}`);
+                        onsole.log(`リンク先: ${href}`);
                     }
                 });
             });

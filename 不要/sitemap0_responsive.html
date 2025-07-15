@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サイトマップ - 裏磐梯</title>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .header-logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c5282;
+            margin-right: 15px;
+        }
+
+        .header-logo2 {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .header-list {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .header-list ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .header-list li {
+            background-color: cadetblue;
+            border-radius: 0 0 8px 8px;
+            padding: 12px 24px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-list li:hover {
+            background-color: #4a8b8b;
+        }
+
+        .header-list li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            min-height: 60vh;
+        }
+
+        .contents-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .contents-item h1 {
+            background: linear-gradient(135deg, dodgerblue, #1871d1);
+            color: white;
+            font-size: 32px;
+            padding: 25px 30px;
+            margin: 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(30, 144, 255, 0.3);
+        }
+
+        /* Sitemap Navigation */
+        .sitemap-nav {
+            padding: 40px 30px;
+        }
+
+        .sitemap-list {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: grid;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .sitemap-item {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sitemap-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, dodgerblue, #1871d1);
+            transition: width 0.3s ease;
+        }
+
+        .sitemap-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: dodgerblue;
+        }
+
+        .sitemap-item:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+
+        .sitemap-item a {
+            color: #2d3748;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .sitemap-item:hover a {
+            color: dodgerblue;
+        }
+
+        .sitemap-item .icon {
+            font-size: 20px;
+            color: dodgerblue;
+            width: 24px;
+            text-align: center;
+        }
+
+      
+
+        /* Current page indicator */
+        .current-page {
+            background: linear-gradient(135deg, #bee3f8, #90cdf4);
+            border-color: dodgerblue;
+        }
+
+        .current-page::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .current-page a {
+            color: #2c5282;
+            font-weight: 600;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: #f7fafc;
+            padding: 15px 30px;
+            margin-bottom: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: dodgerblue;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            list-style: none;
+        }
+
+        .footer-list li a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-list li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .header-brand {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .header-logo {
+                font-size: 24px;
+            }
+
+            .header-logo2 {
+                font-size: 14px;
+            }
+
+            .header-list {
+                justify-content: center;
+            }
+
+            .header-list ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header-list li {
+                padding: 10px 18px;
+                margin: 3px;
+            }
+
+            .main {
+                padding: 20px 15px;
+            }
+
+            .contents-item h1 {
+                font-size: 28px;
+                padding: 20px;
+            }
+
+            .sitemap-nav {
+                padding: 30px 20px;
+            }
+
+            .sitemap-item {
+                padding: 15px 20px;
+            }
+
+            .sitemap-item a {
+                font-size: 16px;
+            }
+
+            .breadcrumb {
+                padding: 15px 20px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-list {
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-list li {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            .contents-item h1 {
+                font-size: 24px;
+                padding: 15px;
+            }
+
+            .sitemap-nav {
+                padding: 20px 15px;
+            }
+
+            .sitemap-item {
+                padding: 12px 15px;
+            }
+
+            .sitemap-item a {
+                font-size: 15px;
+                gap: 10px;
+            }
+
+            .sitemap-item .icon {
+                font-size: 18px;
+            }
+
+            .breadcrumb {
+                padding: 12px 15px;
+                font-size: 13px;
+            }
+
+            .footer-list {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header-container">
+            <div class="header-brand">
+                <div class="header-logo">裏磐梯</div>
+                <div class="header-logo2">-五色沼湖沼群観光-</div>
+            </div>
+            
+            <div class="header-list">
+                <ul>
+                    <li><a href="inquiries.html">お問い合わせ</a></li>
+                    <li><a href="english.html">English</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="contents-item">
+            <div class="breadcrumb">
+                <a href="index.html">ホーム</a> > サイトマップ
+            </div>
+            
+            <h1>サイトマップ</h1>
+
+            <nav class="sitemap-nav">
+                <ul class="sitemap-list">
+                    <li class="sitemap-item">
+                        <a href="index.html">
+                            <i class="icon fas"></i>
+                            五色沼湖沼群
+                        </a>
+                    </li>
+                    
+                    <li class="sitemap-item">
+                        <a href="inquiries.html">
+                            <i class="icon fas"></i>
+                            お問い合わせ
+                        </a>
+                    </li>
+                    
+                    <li class="sitemap-item">
+                        <a href="english.html">
+                            <i class="icon fas"></i>
+                            English
+                        </a>
+                    </li>
+                    
+                    <li class="sitemap-item">
+                        <a href="sitepolicy.html">
+                            <i class="icon fas"></i>
+                            サイトポリシー
+                        </a>
+                    </li>
+                    
+                    <li class="sitemap-item current-page">
+                        <a href="sitemap.html">
+                            <i class="icon fas"></i>
+                            サイトマップ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                〒969-2701 福島県耶麻郡北塩原村大字桧原字剣ヶ峯
+            </div>
+
+            <ul class="footer-list">
+                <li><a href="sitemap.html">サイトマップ</a></li>
+                <li><a href="sitepolicy.html">サイトポリシー</a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
